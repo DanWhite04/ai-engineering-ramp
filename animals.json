@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Rex",
+    "age": 4,
+    "species": "Dog",
+    "breed": "Labrador"
+  },
+  {
+    "name": "Mala",
+    "age": 10,
+    "species": "Cat",
+    "indoor": true
+  },
+  {
+    "name": "Tweety",
+    "age": 2,
+    "species": "Bird"
+  }
+]
