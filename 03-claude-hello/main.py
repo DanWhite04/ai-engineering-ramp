@@ -16,7 +16,6 @@ class CapitalInfo(BaseModel):
 def main():
     tool_block = next(b for b in response.content if b.type == "tool_use")
     info = CapitalInfo(**tool_block.input)
-
     print(f"Country: {info.country}")
     print(f"Capital: {info.capital}")
     print(f"Population: {info.population}")
@@ -33,10 +32,10 @@ response = client.messages.create(
         }
     ],
     tool_choice={"type": "tool", "name": "capital_info"},
-
     messages=[
         {"role": "user", "content": "Tell me about the capital of Australia."}
-    ]
+    ],
+    system="You are an ethusiastic travel guide, make the facts memorable and interesting to the ones asking."
 )
 
 if __name__ == "__main__":
