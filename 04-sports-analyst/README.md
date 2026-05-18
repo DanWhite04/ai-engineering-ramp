@@ -1,19 +1,19 @@
 # AI Sports Analyst
 
-Fetches today's NBA games and major European football matches from public APIs, sends the combined list to Claude (via the official Anthropic SDK), and prints a structured, validated daily analysis.
+Fetches today's NBA games and major European football matches from public APIs, sends the combined list to Claude via the official Anthropic SDK, and prints a structured, validated daily analysis.
 
 ## What it demonstrates
 
-- **Multi-source data integration** — two different sports APIs with different auth schemes (Bearer-style header vs. custom `X-Auth-Token`), unified into a single internal schema.
-- **Structured LLM output** — pydantic models define the contract; Anthropic tool-use forces schema-compliant responses from Claude. No fragile string parsing.
-- **Clean separation of concerns** — `sports/` does I/O, `analyst.py` does AI, `models.py` defines the schema, `main.py` orchestrates.
-- **Timezone-aware date handling** — NBA dates queried in US Eastern, football queried in UTC, matching what each API indexes by.
+- **Multi-source data integration.** Two sports APIs with different authentication schemes (a Bearer-style header on one, a custom `X-Auth-Token` on the other), unified into a single internal schema before they reach the analyst layer.
+- **Structured LLM output.** Pydantic models define the contract for the response. Anthropic tool-use forces Claude to produce schema-compliant JSON, removing the need for fragile string parsing.
+- **Clean separation of concerns.** `sports/` handles I/O, `analyst.py` handles the AI call, `models.py` defines the schema, and `main.py` orchestrates the pipeline.
+- **Timezone-aware date handling.** NBA dates are queried in US Eastern time and football in UTC, matching what each upstream API indexes by.
 
 ## Project layout
 
 ```
 04-sports-analyst/
-├── main.py            # entry point — orchestrates fetch -> analyse -> print
+├── main.py            # entry point; orchestrates fetch, analyse, print
 ├── analyst.py         # Claude integration; returns a validated DayAnalysis
 ├── models.py          # pydantic models defining the AI's response contract
 ├── sports/
@@ -29,7 +29,7 @@ Fetches today's NBA games and major European football matches from public APIs, 
 uv run python main.py
 ```
 
-Requires three environment variables in `.env`:
+You'll need three environment variables in `.env`:
 
 ```
 NBA_API_KEY=...           # https://www.balldontlie.io/
