@@ -2,11 +2,12 @@
 
 A self-directed study working toward a junior role in applied LLM and AI engineering.
 
-Each numbered folder is a standalone project with its own working code, dependencies, and notes. The progression is deliberate: fundamentals first, then real-world integrations, then the LLM stack itself. I write the code; this repo is the public record of the progress as I go.
+Each numbered folder is a standalone project with its own working code, dependencies, and notes. The progression is deliberately planned out: fundamentals first, then real-world integrations, then the LLM stack itself.
+ This repo stands as a public record of my progress as I continue to write code.
 
 ## Background
 
-Bachelor of Information Technology, Macquarie University (Sydney, 2026). My foundation is in Java, and this repo is my structured ramp into the Python-first AI engineering stack.
+Bachelor of Information Technology, Macquarie University (Sydney). My foundation is in Java, and this repo is my structured ramp into the Python-first AI engineering stack.
 
 ## Milestones
 
